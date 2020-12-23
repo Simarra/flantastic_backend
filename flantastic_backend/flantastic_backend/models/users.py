@@ -1,1 +1,1 @@
-users = {"username": "Loïc", "password": "123"}
+users = [{"username": "Loïc", "password": "123"}, {"username": "Suzanne", "password": "123"}]
