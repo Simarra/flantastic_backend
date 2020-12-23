@@ -1,8 +1,1 @@
-import flantastic_backend.flantastic_backend.routes
-
-from flask import Flask
-app = Flask(__name__)
-
-@app.route('/')
-def hello_world():
-    return 'Hello, World!'
+from flantastic_backend.flantastic_backend.app import flantastic_app
