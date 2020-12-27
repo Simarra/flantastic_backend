@@ -1,0 +1,3 @@
+from flantastic_backend.flantastic_backend.models.shared import db
+from flantastic_backend.flantastic_backend.models.bakery import Bakery
+from flantastic_backend.flantastic_backend.models.user import User

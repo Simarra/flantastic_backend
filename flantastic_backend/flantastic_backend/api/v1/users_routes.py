@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from flantastic_backend.flantastic_backend.models.users import users
+from flantastic_backend.flantastic_backend.models import User
 
 
 # Blueprint Configuration
@@ -24,5 +24,5 @@ def add_user():
     return  "OK", 200
 
 @flantastic_users_bp.route('/deluser', methods=["POST"])
-def add_user():
+def del_user():
     return  "OK", 200
