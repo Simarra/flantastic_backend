@@ -1,2 +1,2 @@
-from flantastic_backend.flantastic_backend.app import flantastic_app
-flantastic_app.run()
+from flantastic_backend.flantastic_backend.app import create_app
+create_app().run()
