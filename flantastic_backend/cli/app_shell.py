@@ -2,17 +2,19 @@ from flantastic_backend.flantastic_backend.app import create_app, db
 from flantastic_backend.flantastic_backend.models import User, Bakery, Role
 
 app = create_app()
+app.app_context().push()
 db.create_all()
 
-app.app_context().push()
 
-a_role = Role(role_name="Administrateur")
+admin_role = Role(role_name="Administrateur")
+user_role = Role(role_name="Utilisateur")
 
 mybak = Bakery(name="coucou", comment="salut", rate=1) 
 an_user =  User(username='loic', password='lol', email="coucou")
-an_user.role.append(a_role)
+an_user.role = admin_role
 
 an_user.bakery.append(mybak)
 
 db.session.add(an_user)
+db.session.add(user_role)
 db.session.commit()
