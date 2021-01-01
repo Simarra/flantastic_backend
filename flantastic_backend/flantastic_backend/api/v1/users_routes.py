@@ -8,7 +8,17 @@ flantastic_users_bp = Blueprint("flantastic", __name__, url_prefix="/api/v1/user
 
 @flantastic_users_bp.route("/", methods=["GET"])
 def get_users():
-    users_res = User.query.limit(20).all()
+    """
+    Optinal param: limit to limit number of users fetch
+    """
+    nb_of_users = request.args.get('limit')
+
+    
+    if not nb_of_users:
+        nb_of_users = 10
+    nb_of_users = int(nb_of_users)
+
+    users_res = User.query.limit(nb_of_users).all()
     res_list = []
     for user in users_res:
         dct = {"username": user.username}
@@ -50,6 +60,7 @@ def add_user():
     db.session.commit()
 
     return "ok", 200
+
 
 
 # @flantastic_users_bp.route('/deluser', methods=["POST"])
