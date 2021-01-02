@@ -4,7 +4,7 @@ from flantastic_backend.flantastic_backend.api.auth.basic_auth import auth
 
 
 # Blueprint Configuration
-flantastic_users_bp = Blueprint("flantastic", __name__, url_prefix="/api/v1/users")
+flantastic_users_bp = Blueprint("flantastic_users", __name__, url_prefix="/api/v1/users")
 
 
 @flantastic_users_bp.route("/", methods=["GET"])
