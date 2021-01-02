@@ -1,5 +1,4 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from flantastic_backend.flantastic_backend.api.v1.users_routes import flantastic_users_bp
 from flantastic_backend.flantastic_backend.models import db
 from flantastic_backend.flantastic_backend.config import DevelopmentConfig
