@@ -12,6 +12,7 @@ class User(db.Model):
     nullable=False)
 
     role = relationship("Role", back_populates="user")
+    vote = relationship("Vote", back_populates="user")
 
 
     def __repr__(self):

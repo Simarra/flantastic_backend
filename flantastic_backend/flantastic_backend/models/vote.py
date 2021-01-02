@@ -4,10 +4,10 @@ import datetime
 
 
 class Vote(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    # id = db.Column(db.Integer, primary_key=True)
     gout = db.Column(db.SmallInteger, nullable=False)
     pate = db.Column(db.SmallInteger, nullable=False)
-    teture = db.Column(db.SmallInteger, nullable=False)
+    texture = db.Column(db.SmallInteger, nullable=False)
     apparence = db.Column(db.SmallInteger, nullable=False)
     commentaire = db.Column(db.String(250), nullable=True)
     date_updated = db.Column(
@@ -18,17 +18,19 @@ class Vote(db.Model):
     )
     date_created = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
+
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), primary_key=True)
     user = relationship("User", back_populates="vote")
 
-    bakery_id = db.Column(db.Integer, db.ForeignKey("role.id"), nullable=False)
-    bakery = relationship("Role", back_populates="user")
+    bakery_id = db.Column(db.Integer, db.ForeignKey("bakery.id"), primary_key=True)
+    bakery = relationship("Bakery", back_populates="vote")
 
     @db.validates("gout")
     @db.validates("pate")
     @db.validates("texture")
     @db.validates("apparence")
     def validate_five_start(self, key: str, value: int):
-        assert (value < 5) and (value > 0)
+        assert (value <= 5) and (value >= 0)
         return value
 
     # def __repr__(self):
