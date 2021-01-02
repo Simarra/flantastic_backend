@@ -1,6 +1,6 @@
 
 from flask import Blueprint, jsonify, request
-from flantastic_backend.flantastic_backend.models import User, Bakery, db
+from flantastic_backend.flantastic_backend.models import User, Bakery
 
 
 # Blueprint Configuration

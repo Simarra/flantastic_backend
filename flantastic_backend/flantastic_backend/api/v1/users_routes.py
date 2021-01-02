@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flantastic_backend.flantastic_backend.models import User, db
+from flantastic_backend.flantastic_backend.api.auth.basic_auth import auth
 
 
 # Blueprint Configuration
@@ -7,6 +8,7 @@ flantastic_users_bp = Blueprint("flantastic", __name__, url_prefix="/api/v1/user
 
 
 @flantastic_users_bp.route("/", methods=["GET"])
+@auth.login_required
 def get_users():
     """
     Optinal param: limit to limit number of users fetch
